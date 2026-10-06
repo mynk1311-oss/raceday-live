@@ -1,0 +1,73 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #f4f4f6; }
+
+/* ---------- Admin page ---------- */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #222;
+  color: white;
+}
+.nav a { color: #ffd54f; text-decoration: none; }
+
+.admin {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.card h2 { margin: 0; }
+.card input, .card select, .card textarea { padding: 0.6rem; font-size: 1rem; }
+.card button { padding: 0.7rem; font-size: 1rem; cursor: pointer; }
+
+/* ---------- Projector view ---------- */
+.projector {
+  min-height: 100vh;
+  background: #0b0f1a;
+  color: white;
+  padding: 2rem 4rem;
+}
+.projector header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.projector h1 { font-size: 3rem; margin: 0; }
+.projector select { font-size: 1.5rem; padding: 0.4rem; }
+.error { color: #ff6b6b; font-size: 1.2rem; }
+.empty { font-size: 2rem; opacity: 0.6; }
+
+.board {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  font-size: 2.2rem;
+}
+.board th {
+  text-align: left;
+  opacity: 0.6;
+  font-size: 1.4rem;
+  padding: 0.5rem 1rem;
+}
+.board td { padding: 1rem; border-bottom: 1px solid #243; }
+.board tr.highlight {
+  background: #1b5e20;
+  animation: flash 1.5s ease-out;
+}
+
+@keyframes flash {
+  from { background: #ffd54f; color: black; }
+}
