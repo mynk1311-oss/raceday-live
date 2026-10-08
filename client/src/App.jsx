@@ -18,6 +18,7 @@ export default function App() {
     return (
       <div>
         <nav className="nav">
+          <a href="#home">← Home</a>
           <strong>🏁 RaceDay Live: Admin</strong>
           <a href="#projector" target="_blank" rel="noreferrer">
             Open Projector View ↗

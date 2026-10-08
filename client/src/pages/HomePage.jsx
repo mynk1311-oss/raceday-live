@@ -1,26 +1,24 @@
 export default function HomePage() {
   return (
-    <div className="home">
-      <div className="home-inner">
-        <p className="home-tag">Line Follower Robot Competition</p>
-        <h1>🏁 RaceDay Live</h1>
-        <p className="home-sub">
-          Live scoring and an auto-updating leaderboard. No more whiteboards.
-        </p>
+    <div className="landing">
+      <div className="streaks">
+        <div className="streak"></div>
+        <div className="streak"></div>
+        <div className="streak"></div>
+        <div className="streak"></div>
+        <div className="streak"></div>
+        <div className="streak"></div>
+        <div className="streak"></div>
+      </div>
 
-        <div className="home-buttons">
-          <a href="#admin" className="home-card">
-            <span className="home-card-title">Admin</span>
-            <span className="home-card-text">
-              Register teams, record runs and manage results.
-            </span>
-          </a>
+      <div className="landing-content">
+        <h1>
+          Race<span>Day</span> Live
+        </h1>
 
-          <a href="#projector" className="home-card">
-            <span className="home-card-title">Projector View</span>
-            <span className="home-card-text">
-              Full-screen live leaderboard for the audience.
-            </span>
+        <div className="landing-buttons">
+          <a href="#admin" className="btn-primary">
+            Go to Admin
           </a>
         </div>
       </div>
