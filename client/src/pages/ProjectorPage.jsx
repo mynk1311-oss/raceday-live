@@ -22,10 +22,10 @@ export default function ProjectorPage() {
       }
     }
 
-    refresh();                                // fetch immediately
-    const timer = setInterval(refresh, 3000); // then every 3 seconds
+    refresh();
+    const timer = setInterval(refresh, 3000);
 
-    return () => {                            // cleanup when round changes or page closes
+    return () => {
       cancelled = true;
       clearInterval(timer);
     };
