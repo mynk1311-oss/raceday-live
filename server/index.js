@@ -144,10 +144,15 @@ app.get("/api/leaderboard", (req, res) => {
     return a.bestTime - b.bestTime;
   });
 
-  // Assign ranks (DNF teams get no rank)
-  let rank = 1;
-  rows.forEach((row) => {
-    row.rank = row.dnf ? null : rank++;
+   // Assign ranks (equal times share a rank, DNF teams get no rank)
+  rows.forEach((row, index) => {
+    if (row.dnf) {
+      row.rank = null;
+      return;
+    }
+    const prev = rows[index - 1];
+    const isTie = prev && !prev.dnf && Math.abs(prev.bestTime - row.bestTime) < 0.001;
+    row.rank = isTie ? prev.rank : index + 1;
   });
 
   // Most recently submitted run in this round
