@@ -23,3 +23,8 @@ export const createRun = (run) =>
 
 export const getLeaderboard = (round) =>
   request(`/api/leaderboard?round=${round}`);
+
+export const getRuns = () => request("/api/runs");
+
+export const deleteRun = (id) =>
+  request(`/api/runs/${id}`, { method: "DELETE" });

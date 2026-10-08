@@ -87,7 +87,25 @@ app.post("/api/runs", (req, res) => {
   saveDb();
   res.status(201).json(run);
 });
+// ---------- List and delete runs ----------
+app.get("/api/runs", (req, res) => {
+  // Newest first, with the team name attached for display
+  const runs = [...db.runs].reverse().map((run) => {
+    const team = db.teams.find((t) => t.id === run.teamId);
+    return { ...run, teamName: team ? team.teamName : "Unknown team" };
+  });
+  res.json(runs);
+});
 
+app.delete("/api/runs/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const index = db.runs.findIndex((r) => r.id === id);
+  if (index === -1) return res.status(404).json({ error: "Run not found" });
+
+  db.runs.splice(index, 1);
+  saveDb();
+  res.json({ message: "Run deleted" });
+});
 // ---------- Leaderboard ----------
 app.get("/api/leaderboard", (req, res) => {
   const round = req.query.round;
